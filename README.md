@@ -1,7 +1,8 @@
 # ProgressUI
 
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fpierrejanineh-com%2FProgressUI%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/pierrejanineh-com/ProgressUI)
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fpierrejanineh-com%2FProgressUI%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/pierrejanineh-com/ProgressUI)
+[![](https://img.shields.io/endpoint?url=https://swiftpackageindex.com/api/packages/PierreJanineh-com/ProgressUI/badge?type=swift-versions)](https://swiftpackageindex.com/pierrejanineh-com/ProgressUI)
+[![](https://img.shields.io/endpoint?url=https://swiftpackageindex.com/api/packages/PierreJanineh-com/ProgressUI/badge?type=platforms)](https://swiftpackageindex.com/pierrejanineh-com/ProgressUI)
+[![](https://img.shields.io/github/v/release/PierreJanineh-com/ProgressUI)]()
 
 <img src="./example.gif" alt="Example ProgressUI" width="400" />
 
