@@ -3,6 +3,8 @@
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fpierrejanineh-com%2FProgressUI%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/pierrejanineh-com/ProgressUI)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fpierrejanineh-com%2FProgressUI%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/pierrejanineh-com/ProgressUI)
 
+<img src="./example.gif" alt="Example ProgressUI" width="400" />
+
 `ProgressUI` is a SwiftUI package that provides a highly customizable circular progress indicator. It supports dynamic coloring based on progress states, multiple size options, and smooth animations, making it perfect for showing progress, loading states, or status indicators in your iOS, macOS, watchOS, visionOS, and tvOS applications.
 
 ## Features
