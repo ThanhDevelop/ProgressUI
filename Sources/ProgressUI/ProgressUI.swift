@@ -20,7 +20,7 @@ public struct ProgressUI: View {
 	@Binding private var progress: CGFloat?
 	
 	/// The type used for dynamic coloring/status.
-	private let statusType: CaseIterableAndProgressable.Type?
+	private let statusType: (any CaseIterableAndProgressable.Type)?
 	
 	/// The current rotation angle for spinner animation.
 	@State private var rotationAngle: Angle = .zero
@@ -142,7 +142,7 @@ public struct ProgressUI: View {
 				on: .main,
 				in: .common
 			)
-			timer.connect()
+			_ = timer.connect()
 		}
 		.onReceive(timer) { _ in
 			if vm.isClockwise {
@@ -159,7 +159,7 @@ public struct ProgressUI: View {
 	}
 	
 	/// The current status for dynamic coloring.
-	private var status: CaseIterableAndProgressable? {
+	private var status: (any CaseIterableAndProgressable)? {
 		statusType?.calculate(from: progress ?? vm.progress)
 	}
 	
