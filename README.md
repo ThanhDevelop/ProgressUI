@@ -128,7 +128,7 @@ let options = Options(
 ```
 
 ## Platforms
-The InfiniteScrollView package supports the following platforms:
+The ProgressUI package supports the following platforms:
 - iOS 14.0+
 - macOS 11.0+
 - macCatalyst 14.0+
