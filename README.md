@@ -14,6 +14,8 @@
 - 📐 Adjustable stroke widths
 - 🔲 Round or square line caps
 
+<img src="https://github.com/PierreJanineh-com/ProgressUI/example.gif" alt="Cute Cat" width="400" />
+
 ## Installation
 
 ### Swift Package Manager
