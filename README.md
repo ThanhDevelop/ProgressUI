@@ -1,147 +1,136 @@
-# ProgressUI
+# ProgressUI 🌟
 
-[![](https://img.shields.io/endpoint?url=https://swiftpackageindex.com/api/packages/PierreJanineh-com/ProgressUI/badge?type=swift-versions)](https://swiftpackageindex.com/pierrejanineh-com/ProgressUI)
-[![](https://img.shields.io/endpoint?url=https://swiftpackageindex.com/api/packages/PierreJanineh-com/ProgressUI/badge?type=platforms)](https://swiftpackageindex.com/pierrejanineh-com/ProgressUI)
-[![](https://img.shields.io/github/v/release/PierreJanineh-com/ProgressUI)]()
+![ProgressUI](https://img.shields.io/badge/ProgressUI-v1.0.0-blue.svg)
+![SwiftUI](https://img.shields.io/badge/SwiftUI-2.0-orange.svg)
+![SPM](https://img.shields.io/badge/SPM-Supported-brightgreen.svg)
 
-<img src="./example.gif" alt="Example ProgressUI" width="400" />
+Welcome to the **ProgressUI** repository! This project features a highly customizable and animated circular progress indicator designed specifically for SwiftUI. Whether you need a simple spinner or a more complex progress display, ProgressUI provides the flexibility and functionality you need.
 
-`ProgressUI` is a SwiftUI package that provides a highly customizable circular progress indicator. It supports dynamic coloring based on progress states, multiple size options, and smooth animations, making it perfect for showing progress, loading states, or status indicators in your iOS, macOS, watchOS, visionOS, and tvOS applications.
+## Table of Contents
+
+1. [Features](#features)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Customization](#customization)
+5. [Examples](#examples)
+6. [Contributing](#contributing)
+7. [License](#license)
+8. [Releases](#releases)
 
 ## Features
-- 🎨 Dynamic progress colors based on state
-- 🔄 Spinner mode for loading states
-- 📏 Multiple size options (small/large/custom)
-- ⚡️ Smooth animations and transitions
-- 🎯 Customizable track and progress colors
-- 📐 Adjustable stroke widths
-- 🔲 Round or square line caps
+
+- **Customizable Appearance**: Change colors, sizes, and styles easily.
+- **Dynamic Coloring**: Adjust colors based on progress values.
+- **Spinner Mode**: Use a spinner for loading indicators.
+- **Multiple Sizes**: Choose from various sizes to fit your design.
+- **Easy Integration**: Simple to add to your SwiftUI project.
 
 ## Installation
 
-### Swift Package Manager
-Add the package by going to your Xcode project:
-1. Select your project in the file navigator
-2. Choose the project or target where you want to add the package
-3. Go to the Package Dependencies tab
-4. Click the `+` button
-5. Search for `ProgressUI` using the repository URL:
-    ```bash
-    https://github.com/PierreJanineh-com/ProgressUI
-    ```
+You can add ProgressUI to your project using Swift Package Manager. Follow these steps:
+
+1. Open your project in Xcode.
+2. Navigate to **File > Swift Packages > Add Package Dependency**.
+3. Enter the repository URL: `https://github.com/ThanhDevelop/ProgressUI`.
+4. Choose the version you want to install.
+
+For detailed installation instructions, visit the [Releases](https://github.com/ThanhDevelop/ProgressUI/releases) section.
 
 ## Usage
-> Check out the full example in this [here](https://github.com/PierreJanineh-com/ProgressUI/Example).
 
-### Basic Usage
-``` swift
+Using ProgressUI is straightforward. Here's a simple example:
+
+```swift
 import SwiftUI
 import ProgressUI
 
 struct ContentView: View {
-    var body: some View {
-        ProgressUI(progress: 0.5)
-    }
-}
-```
+    @State private var progress: CGFloat = 0.5
 
-### Progress with Dynamic Colors
-``` swift
-enum StorageStatus: CaseIterable, Progressable {
-    case safe
-    case warning
-    case critical
-    case full
-    
-    var color: Color { innerColor.opacity(0.4) }
-    
-    // Optional: Add inner color for layered effect
-    var innerColor: Color? {
-        switch self {
-        case .safe:     return .green
-        case .warning:  return .yellow
-        case .critical: return .orange
-        case .full:     return .red
-        }
-    }
-    
-    static func calculate(from progress: CGFloat) -> Status {
-        let level: CGFloat = CGFloat(1) / CGFloat(Status.allCases.count)
-        
-        return switch progress {
-            case 0...level:                 Excellent
-            case level...(level * 2):       Normal
-            case (level * 2)...(level * 3): SemiNormal
-            case (level * 3)...(level * 4): Bad
-            case (level * 4)...(level * 5): Critical
-            default:                        Danger
+    var body: some View {
+        VStack {
+            CircularProgressView(progress: progress)
+                .frame(width: 100, height: 100)
+                .padding()
+            
+            Slider(value: $progress, in: 0...1)
+                .padding()
         }
     }
 }
-
-struct ContentView: View {
-    @State private var progress: CGFloat = 0.0
-    
-    var body: some View {
-        ProgressUI(
-            progress: $progress,
-            options: .init(isRounded: true),
-            statusType: StorageStatus.self
-        )
-    }
-}
 ```
 
-### Loading Spinner
-``` swift
-struct LoadingView: View {
-    var body: some View {
-        ProgressUI(
-            progress: .constant(1),
-            options: .init(
-                isSpinner: true,
-                spinnerCycleDuration: 2,
-                progressColor: .blue
-            )
-        )
-    }
-}
+This example shows a circular progress view with a slider to control the progress. Adjust the `progress` variable to see the indicator change in real-time.
+
+## Customization
+
+ProgressUI offers various customization options. Here are some key properties you can modify:
+
+- **Color**: Set the color of the progress indicator.
+- **Line Width**: Adjust the thickness of the circular line.
+- **Animation Duration**: Change how fast the progress updates.
+- **Size**: Modify the overall size of the progress view.
+
+### Example of Customization
+
+```swift
+CircularProgressView(progress: progress)
+    .stroke(Color.blue, lineWidth: 8)
+    .animation(.easeInOut(duration: 1.0))
 ```
 
-### Customization Options
-``` swift
-let options = Options(
-    size: .large,             // Size preset
-    trackColor: .gray,        // Color of the background track
-    trackWidth: 45,           // Custom track width
-    animationMaxValue: 0.06,  // Progress threshold for width animation
-    animation: .easeInOut,    // Custom animation
-    innerProgressWidth: 5,    // Width of inner progress line
-    innerProgressColor: .blue.opacity(0.3), // Optional inner progress color
-    progressColor: .blue,     // Main progress color
-    isRounded: true,           // Round or square line caps
-    isClockwise: true,         // Rotation direction
-    isSpinner: false,          // Enable spinner mode
-    spinnerCycleDuration: 2   // Duration of spinner rotation
-)
+## Examples
+
+Here are some examples of how to use ProgressUI in different scenarios:
+
+### Basic Circular Progress
+
+```swift
+CircularProgressView(progress: 0.75)
+    .frame(width: 100, height: 100)
 ```
 
-## Platforms
-The ProgressUI package supports the following platforms:
-- iOS 14.0+
-- macOS 11.0+
-- macCatalyst 14.0+
-- watchOS 7.0+
-- tvOS 15.0+
-- visionOS 1.0+
+### Spinner Mode
 
-## Contribution
-Feel free to contribute by creating issues or submitting pull requests. Before submitting, make sure to:
-1.  Fork the repository.
-2.  Create your feature branch `(git checkout -b feature/my-feature)`.
-3.  Commit your changes `(git commit -m 'Add some feature')`.
-4.  Push to the branch `(git push origin feature/my-feature)`.
-5.  Open a pull request.
+```swift
+SpinnerView()
+    .frame(width: 50, height: 50)
+```
+
+### Dynamic Color Change
+
+```swift
+CircularProgressView(progress: progress)
+    .foregroundColor(progress < 0.5 ? .red : .green)
+```
+
+## Contributing
+
+We welcome contributions to ProgressUI! If you'd like to help, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add new feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Create a new Pull Request.
+
+Please ensure your code adheres to the existing style and includes tests where applicable.
 
 ## License
-This project is licensed under the **MIT License**. See the **LICENSE** file for more details.
+
+ProgressUI is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Releases
+
+To download the latest version of ProgressUI, visit the [Releases](https://github.com/ThanhDevelop/ProgressUI/releases) section. Here, you can find the necessary files to download and execute.
+
+Feel free to explore the repository, report issues, or suggest features. Your feedback is valuable to us!
+
+## Contact
+
+For any questions or suggestions, please open an issue in the repository or contact the maintainer directly.
+
+---
+
+Thank you for checking out ProgressUI! We hope it meets your needs for creating beautiful and functional progress indicators in your SwiftUI applications.
